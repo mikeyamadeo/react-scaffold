@@ -1,0 +1,32 @@
+/*------------------------------------*\
+    #TYPOGRAPHY_BASE
+\*------------------------------------*/
+
+// Global Font
+// ==========================================================================
+html {
+    @include font-smoothing();
+    font-family: $base-font-family;
+    text-rendering: optimizeLegibility;
+}
+
+// Headers
+// ==========================================================================
+h1, h2, h3, h4, h5, h6 {
+    font-weight: $header-font-weight;
+}
+
+// Links
+// ==========================================================================
+a {
+    // @include transition (opacity .25s ease-in-out);
+    text-decoration: none;
+    &:hover {
+        opacity: 0.7;
+    }
+    &:active {}
+    &:focus {}
+    &:link {
+        // -webkit-tap-highlight-color: rgba($clr-black, 0);
+    }
+}

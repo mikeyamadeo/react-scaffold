@@ -1,0 +1,87 @@
+/*------------------------------------*\
+    #MIXINS
+\*------------------------------------*/
+
+/**
+ * General purpose mixins
+ */
+
+@mixin mediaAt($point) {
+    @media (min-width: $point) { @content; }
+}
+
+// Shorthand for using Bourbans border-radius
+// ==========================================================================
+// The following from http://web-design-weekly.com/blog/2013/05/12/handy-sass-mixins/
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+  background-clip: padding-box;  // stops bg color from leaking outside the border:
+}
+
+// Removes default vendor element appearance
+// ==========================================================================
+@mixin vendor-appearance-reset() {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;  
+}
+
+// Font Smoothing
+// ==========================================================================
+@mixin font-smoothing($value: on) {
+    @if $value == on {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    @else {
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+    }
+}
+
+// Center vertically and/or horizontally an absolute positioned element
+// ==========================================================================
+@mixin center($xy:xy) {
+  @if $xy == xy {
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    @include transform(translateX(-50%) translateY(-50%));
+  }
+  @else if $xy == x {
+    left: 50%;
+    right: auto;
+    @include transform(translateX(-50%));
+  }
+  @else if $xy == y {
+    top: 50%;
+    bottom: auto;
+    @include transform(translateY(-50%));
+  }
+}
+
+// Center vertically relative positioned element
+// ==========================================================================
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+// Prefixes for cover images
+// ==========================================================================
+@mixin background-image-cover {
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+         -o-background-size: cover;
+            background-size: cover;
+}
+
+

@@ -1,0 +1,35 @@
+{
+  "name": "keyIndicators",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node node_modules/.bin/webpack-dev-server --content-base public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mikeyamadeo/keyIndicators.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikeyamadeo/keyIndicators/issues"
+  },
+  "homepage": "https://github.com/mikeyamadeo/keyIndicators",
+  "devDependencies": {
+    "webpack": "~1.7.3",
+    "jsx-loader": "~0.12.2",
+    "style-loader": "~0.8.3",
+    "css-loader": "~0.9.1",
+    "sass-loader": "~0.4.0-beta.1",
+    "babel-loader": "~4.1.0",
+    "file-loader": "~0.8.1",
+    "url-loader": "~0.5.5",
+    "webpack-dev-server": "~1.7.0"
+  },
+  "dependencies": {
+    "react": "~0.12.2",
+    "flux": "~2.0.1",
+    "events": "~1.0.2"
+  }
+}
