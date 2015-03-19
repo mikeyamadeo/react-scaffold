@@ -1,9 +1,6 @@
 /*** @jsx React.DOM */
-var React = require('react');
-// import './styles/main.scss';
+import React from 'react';
 import './styles/main.scss';
-
-
 
 var App = React.createClass({
 
