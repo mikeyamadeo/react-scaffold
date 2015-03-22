@@ -1,4 +1,4 @@
-A lightweight, opinionated setup using react, webpack, babel, & sass to get up and going on react projects.
+A lightweight, opinionated setup using react, react-router, webpack, babel, & sass to get up and going on react projects.
 
 To Come:
 * Flux
