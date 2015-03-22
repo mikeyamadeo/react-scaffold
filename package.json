@@ -1,5 +1,5 @@
 {
-  "name": "keyIndicators",
+  "name": "react-scaffold",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mikeyamadeo/keyIndicators.git"
+    "url": "https://github.com/mikeyamadeo/react-scaffold.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mikeyamadeo/keyIndicators/issues"
+    "url": "https://github.com/mikeyamadeo/react-scaffold/issues"
   },
-  "homepage": "https://github.com/mikeyamadeo/keyIndicators",
+  "homepage": "https://github.com/mikeyamadeo/react-scaffold",
   "devDependencies": {
     "webpack": "~1.7.3",
     "jsx-loader": "~0.12.2",
@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "react": "~0.12.2",
+    "react-router": "~0.12.4",
     "flux": "~2.0.1",
     "events": "~1.0.2"
   }

@@ -1,16 +1,8 @@
-/*** @jsx React.DOM */
-import React from 'react';
 import './styles/main.scss';
+import React from 'react';
+import Router from 'react-router';
+import routes from './config/routes';
 
-var App = React.createClass({
-
-  render: function() {
-    return(
-      <div>
-        <h1>Let's Get Reactin</h1>
-      </div>
-    );
-  }
+Router.run(routes, function(Handler) {
+	React.render(<Handler />, document.getElementById('app'));
 });
-
-React.render(<App/>, document.getElementById('app'));
