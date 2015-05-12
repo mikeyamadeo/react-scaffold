@@ -1,66 +1,67 @@
-var webpack = require('webpack');
-var path = require('path');
+var path = require('path')
+var appPath = path.resolve(__dirname, 'src', 'index.js')
+var stylePath = path.resolve(__dirname, 'src', 'styles')
+var buildPath = path.resolve(__dirname, 'public')
+var getConfig = require('./config/ac-webpack')
+var env = process.env.NODE_ENV || 'development'
 
-module.exports = {
-  devtool: 'eval',
-  context: __dirname + '/app',
-  entry: './index.js',
-  output: {
-    path: __dirname + '/public',
-    filename: 'bundle.js'       
-  },
-  
-  resolve: {
-    extensions: ['', '.js', '.css', '.scss'],
-    modulesDirectories: [
-      'styles',
-      'shared',
-      'components',
-      'constants',
-      'flux',
-      'flux/stores',
-      'flux/actions',
-      'utils',
-      'public/assets',
-      'node_modules'
-    ]
-  },
-  
-  module: {
-    loaders: [
-      { test: /\.js$/, loader: 'jsx-loader!babel', exclude: /node_modules/},
-      { test: /\.scss$/, 
-        loader: 'style!css!sass?outputStyle=expanded&' +
-        'includePaths[]=' + 
-          (path.resolve(__dirname, './app/styles')) + '&' +
-        'includePaths[]=' + 
-          (path.resolve(__dirname, './node_modules'))
-      },
-      { test: /\.css$/, 
-        loader: 'style!css?outputStyle=expanded&' +
-        'includePaths[]=' + 
-          (path.resolve(__dirname, './app/styles')) + '&' +
-        'includePaths[]=' + 
-          (path.resolve(__dirname, './node_modules'))
-      },
-      { test: /\.(png|svg|jpg)$/, loader: 'url' }
-    ]
-  },
+/** 
+ * 1. Required
+ */
+module.exports = getConfig({
 
-  
+  isDev: env === 'development' /* [1] */,
 
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin(),
-    /**
-     * This is wizardry. Allows files within scss to be resolved
-     * relative to index.html vs. relative from scss file. Avoids 
-     * having to use varying lengths of url('../../../image.svg')
-     * inside scss files and use url('assets/icons/icon.svg')
-     * instead. Big win.
-     * References:
-     *  https://github.com/webpack/webpack/issues/146
-     *  http://webpack.github.io/docs/list-of-plugins.html
-     */
-    new webpack.NormalModuleReplacementPlugin(/\.(svg|png|jpg)$/, ""),
+  in: appPath /* [1] */,
+
+  out: buildPath /* [1] */,
+
+  stylePath: stylePath,
+
+  /**
+   * Production index.html settings. Used to generate dynamic
+   * index for both dev & prod.
+   */
+  htmlConfig: {
+    title: 'AncestorCloud',
+    favicon: '/assets/icons/favicon.ico',
+    googleFonts: [
+      'Noto+Sans'
+    ],
+    gaId: '',
+    reactHook: {
+      attr: 'id',
+      value: 'app'
+    }
+  }, 
+  
+  /**
+   * Files to split into separate vendor bundle. Should only include
+   * libraries that aren't likely to change any time soon.
+   */
+  vendors: [
+    'react', 
+    'react-router'
+  ],
+
+  /**
+   * Directories to check for module imports
+   * see: https://gist.github.com/ryanflorence/daafb1e3cb8ad740b346
+   */
+  resolves: [
+    'styles',
+    'shared',
+    'components',
+    'constants',
+    'flux',
+    'utils',
+    'public/assets',
+    'testUtils',
+    'node_modules'
   ]
-};
+
+})
+ 
+
+
+
