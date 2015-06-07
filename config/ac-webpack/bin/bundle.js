@@ -13,7 +13,7 @@ module.exports = function () {
   var compiler = Webpack(webpackConfig, function (arg1, arg2) {
 
     var html
-console.log(webpackConfig)
+
     if (arg2.compilation.assets) {
       html = arg2.compilation.assets['index.html'].source()
     } else {
