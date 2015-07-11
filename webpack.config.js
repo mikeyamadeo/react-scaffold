@@ -5,16 +5,15 @@ var buildPath = path.resolve(__dirname, 'public')
 var getConfig = require('./config/ac-webpack')
 var env = process.env.NODE_ENV || 'development'
 
-/** 
+/**
  * 1. Required
  */
 module.exports = getConfig({
+  isDev: env === 'development', /* [1] */
 
-  isDev: env === 'development' /* [1] */,
+  in: appPath, /* [1] */
 
-  in: appPath /* [1] */,
-
-  out: buildPath /* [1] */,
+  out: buildPath, /* [1] */
 
   stylePath: stylePath,
 
@@ -23,24 +22,24 @@ module.exports = getConfig({
    * index for both dev & prod.
    */
   htmlConfig: {
-    title: 'AncestorCloud',
-    favicon: '/assets/icons/favicon.ico',
+    title: '[App Title Here]',
+    favicon: '',// /path/to/favicon.ico
     googleFonts: [
-      'Noto+Sans'
+      ''// name of google font i.e Noto+Sans
     ],
-    gaId: '',
-    reactHook: {
+    gaId: '[Google Analytics Id Here]',
+    reactHook: {// what element is your react app hooking into?
       attr: 'id',
       value: 'app'
     }
-  }, 
-  
+  },
+
   /**
    * Files to split into separate vendor bundle. Should only include
    * libraries that aren't likely to change any time soon.
    */
   vendors: [
-    'react', 
+    'react',
     'react-router'
   ],
 
@@ -61,7 +60,3 @@ module.exports = getConfig({
   ]
 
 })
- 
-
-
-
