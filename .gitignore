@@ -2,7 +2,7 @@ node_modules
 bower_components
 .sass-cache
 dist
-public
+public/**
 
 
 # Compiled source #
