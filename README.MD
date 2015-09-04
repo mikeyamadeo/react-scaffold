@@ -1,7 +1,4 @@
-A lightweight, opinionated setup using react, react-router, webpack, babel, & sass to get up and going on react projects.
-
-To Come:
-* Flux
+A lightweight, opinionated setup using react, react-router, webpack, babel, CSS Modules & redux to get up and going on react projects.
 
 ###Getting Started
 * $npm install
