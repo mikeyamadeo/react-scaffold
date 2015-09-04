@@ -96,8 +96,6 @@ module.exports = getConfig({
   vendors: [
     'react',
     'react-router',
-    'leaflet',
-    'leaflet.markercluster',
     'axios'
   ],
 
