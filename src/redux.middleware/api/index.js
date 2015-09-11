@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { Promise } from 'axios/node_modules/es6-promise'
-
-const DEFAULT_METHOD = `GET`
+import { composeConfig, applySchema } from './helpers'
 
 /**
  * A Redux middleware that interprets actions with CALL_API info specified.
@@ -70,73 +69,5 @@ function callApi (config, schema) {
       console.warn(err)
       throw new Error(err)
     })
-}
-
-/**
- * INPUT ->
- * Schema: {
- *  id: '_id',
- *  name: 'users'
- * }
- * +
- * Data: {
- *  _id: 1
- *  firstName: 'tina'
- * }
- *
- * OUTPUT ->
- * Result: {
- *  entities: {
- *    '1': { _id: 1, firstName: 'tina'}
- *  }
- *  result: [1]
- * }
- */
-function applySchema (schema, data) {
-  if (!schema) return data
-
-  const entities = {
-    [schema.name]: {}
-  }
-
-  let result = []
-
-  // assumes it's a single object of type entity
-  if (data.constructor !== Array) {
-    data = [data]
-  }
-
-  data.forEach((item, i) => {
-    let id = data[i][schema.id]
-    entities[schema.name][id] = data[i]
-    result.push(id)
-  })
-
-  return { entities, result }
-}
-
-function composeConfig (callAPI) {
-  let {
-    apiRoot, url, endpoint, method, headers,
-    transformResponse, params, data
-  } = callAPI
-
-  if (!url) {
-
-    if (!endpoint || typeof endpoint !== 'string') {
-      throw new Error('Specify a string endpoint URL.')
-    }
-
-    url = apiRoot + endpoint
-  }
-
-  if (!method) {
-    method = DEFAULT_METHOD
-  }
-
-  return {
-    url, method, headers,
-    transformResponse, params, data
-  }
 }
 
