@@ -1,6 +1,6 @@
 var path = require('path')
 var appPath = path.resolve(__dirname, 'src', 'index.js')
-var stylePath = path.resolve(__dirname, 'src', 'app', 'style')
+var stylePath = path.resolve(__dirname, 'src', 'App', 'style')
 var buildPath = path.resolve(__dirname, 'public')
 var getConfig = require('ac-webpack')
 
