@@ -1,11 +1,10 @@
 import style from './style'
 import React, { PropTypes } from 'react'
 import CSSModules from 'react-css-modules'
-import { RouteHandler } from 'react-router'
 import { connect } from 'react-redux'
 import { capitalize } from 'utils.rendering'
 import { initApp } from './state/actions'
-import Flexbox from 'obj.Flexbox'
+import Flex from 'obj.Flexbox'
 
 const App = React.createClass({
 
@@ -32,13 +31,12 @@ const App = React.createClass({
     const { specs } = props
 
     return (
-      <Flexbox styleName='container' direction='column' align='center'>
+      <Flex styleName='container' direction='column' align='center'>
         <h1 styleName='h1'>made with &#9829; and</h1>
-        <Flexbox tag='ul' styleName='list' direction='column' align='center'>
+        <Flex tag='ul' styleName='list' direction='column' align='center'>
           { renderItems(specs) }
-        </Flexbox>
-        <RouteHandler />
-      </Flexbox>
+        </Flex>
+      </Flex>
     )
   }
 
