@@ -1,9 +1,9 @@
 import React from 'react'
-import { Route, DefaultRoute } from 'react-router'
+import { Route } from 'react-router'
 import App from 'App'
 
-var routes = (
-  <Route handler={App} >
+const routes = (
+  <Route path='/' component={App}>
   </Route>
 )
 
