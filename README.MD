@@ -1,4 +1,12 @@
-A lightweight, opinionated setup using react, react-router, webpack, babel, CSS Modules & redux to get up and going on react projects.
+A lightweight, opinionated setup to get up and going on react projects using
+* react 0.14.0
+* react-rotuer 1.0
+* redux-router
+* webpack
+* babel
+* CSS Modules
+* redux
+
 
 ###Getting Started
 * $npm install
