@@ -1,14 +1,32 @@
 import axios from 'axios'
 import { Promise } from 'axios/node_modules/es6-promise'
-import { composeConfig, applySchema } from './helpers'
+import { composeConfig, applySchema } from './utils'
+
+let _interceptorsAreSet = false
+
+function useInterceptors (state, {requests = [], responses = []}) {
+
+  requests.forEach((fn) => {
+    axios.interceptors.request.use(fn.bind(null, state))
+  })
+
+  responses.forEach((fn) => {
+    axios.interceptors.response.use(fn.bind(null, state))
+  })
+
+  _interceptorsAreSet = true
+}
 
 /**
  * A Redux middleware that interprets actions with CALL_API info specified.
  * Performs the call and promises when such actions are dispatched.
  */
-export function configureApiMiddleware (CALL_API, API_ROOT) {
+export function configureApiMiddleware (CALL_API, API_ROOT, interceptors) {
 
   return store => next => action => {
+
+    if (!_interceptorsAreSet) useInterceptors(store.getState(), interceptors)
+
     const callAPI = action[CALL_API]
     if (typeof callAPI === 'undefined') {
       return next(action)
