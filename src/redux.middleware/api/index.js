@@ -35,7 +35,7 @@ export function configureApiMiddleware (CALL_API, API_ROOT, interceptors) {
     _checkCallApi(callAPI)
     const config = composeConfig(Object.assign({}, callAPI, {apiRoot: API_ROOT}))
 
-    const { schema, types, meta, bailout } = callAPI
+    const { schema, types, payload, meta, bailout } = callAPI
 
     if (bailout && bailout(store.getState())) {
       return Promise.resolve()
@@ -48,7 +48,7 @@ export function configureApiMiddleware (CALL_API, API_ROOT, interceptors) {
     }
 
     const [requestType, successType, failureType] = types
-    next(actionWith({ type: requestType, meta }))
+    next(actionWith({ type: requestType, payload, meta }))
 
     return callApi(config, schema).then(payload => next(actionWith({
         payload,
