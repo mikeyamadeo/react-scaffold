@@ -55,6 +55,10 @@ export function applySchema (schema, response) {
   if (!schema) return response
   const { key, name, id } = schema
 
+  if (key && !response[key]) {
+    throw new Error(`key of '${key}' provided in schema, but no property with value of '${key}' found in response.`)
+  }
+
   let data = key
     ? response[key] /* [1] */
     : response /* [2] */
@@ -80,4 +84,21 @@ export function applySchema (schema, response) {
   return key
     ? Object.assign({}, response, transformation)
     : transformation
+}
+
+export function maybeParse (data) {
+  if (!isJSON(data)) {
+    return data
+  }
+
+  return JSON.parse(data)
+}
+
+function isJSON (str) {
+  try {
+    JSON.parse(str)
+  } catch (e) {
+    return false
+  }
+  return true
 }

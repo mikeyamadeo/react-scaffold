@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { Promise } from 'axios/node_modules/es6-promise'
-import { composeConfig, applySchema } from './utils'
+import { composeConfig, applySchema, maybeParse } from './utils'
 
 let _interceptorsAreSet = false
 
@@ -82,7 +82,12 @@ function _checkCallApi (callAPI) {
  */
 function callApi (config, schema) {
   return axios(config)
-    .then(response => applySchema(schema, JSON.parse(response.data)))
+
+    .then(response => ({
+      apiResponse: response,
+      ...applySchema(schema, maybeParse(response.data))
+    }))
+
     .catch(err => {
       console.warn(err)
       throw new Error(err)
