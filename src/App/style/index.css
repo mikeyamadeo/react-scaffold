@@ -1,3 +1,4 @@
+@import "settings.globals";
 @import "settings.colors";
 @import "settings.typography";
 
@@ -35,6 +36,13 @@ body,
 
 .list-item {
   margin-top: 10px;
-  font-size: 4em;
+  font-size: 3em;
   color: var(--clr-navy);
+  text-align: center;
+}
+
+@media (--viewport-narrow) {
+  .list-item {
+    font-size: 4em;
+  }
 }
