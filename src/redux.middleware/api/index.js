@@ -25,7 +25,7 @@ export function configureApiMiddleware (CALL_API, API_ROOT, interceptors) {
 
   return store => next => action => {
 
-    if (!_interceptorsAreSet) useInterceptors(store.getState, interceptors)
+    if (interceptors && !_interceptorsAreSet) useInterceptors(store.getState, interceptors)
 
     const callAPI = action[CALL_API]
     if (typeof callAPI === 'undefined') {
