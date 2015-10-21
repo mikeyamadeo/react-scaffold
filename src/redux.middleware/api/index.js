@@ -4,7 +4,7 @@ import { composeConfig, applySchema, maybeParse } from './utils'
 
 let _interceptorsAreSet = false
 
-function useInterceptors (getState, {requests = [], responses = []}) {
+function useInterceptors (getState, {requests = [], responses = []} = {}) {
 
   requests.forEach((fn) => {
     axios.interceptors.request.use(fn.bind(null, getState))
