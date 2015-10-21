@@ -4,14 +4,14 @@ import { composeConfig, applySchema, maybeParse } from './utils'
 
 let _interceptorsAreSet = false
 
-function useInterceptors (state, {requests = [], responses = []} = {}) {
+function useInterceptors (getState, {requests = [], responses = []}) {
 
   requests.forEach((fn) => {
-    axios.interceptors.request.use(fn.bind(null, state))
+    axios.interceptors.request.use(fn.bind(null, getState))
   })
 
   responses.forEach((fn) => {
-    axios.interceptors.response.use(fn.bind(null, state))
+    axios.interceptors.response.use(fn.bind(null, getState))
   })
 
   _interceptorsAreSet = true
@@ -25,7 +25,7 @@ export function configureApiMiddleware (CALL_API, API_ROOT, interceptors) {
 
   return store => next => action => {
 
-    if (!_interceptorsAreSet) useInterceptors(store.getState(), interceptors)
+    if (!_interceptorsAreSet) useInterceptors(store.getState, interceptors)
 
     const callAPI = action[CALL_API]
     if (typeof callAPI === 'undefined') {
@@ -90,7 +90,7 @@ function callApi (config, schema) {
 
     .catch(err => {
       console.warn(err)
-      throw new Error(err)
+      return Promise.reject(err)
     })
 }
 
