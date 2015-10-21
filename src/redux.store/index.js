@@ -8,20 +8,32 @@ import routes from 'config.routes'
 
 let store = {}
 
-const reducer = combineReducers(Object.assign({}, reducers, {
+const reducer = combineReducers({
+  ...reducers,
   router: routerStateReducer
-}))
+})
 
-const finalCreateStore = compose(
+const coreMiddleware = compose(
   reduxReactRouter({ routes, createHistory }),
   applyMiddleware(
     thunkMiddleware,
     apiMiddleware
   )
-)(createStore)
+)
 
 export function configureStore (initialState) {
-  store = finalCreateStore(reducer, initialState)
+
+  if (__DEV__) { // eslint-disable-line
+    const devTools = require('redux-devtools').devTools
+    console.log(devTools)
+    store = compose(
+      coreMiddleware,
+      devTools()
+    )(createStore)(reducer, initialState)
+    return store
+  }
+
+  store = coreMiddleware(createStore)(reducer, initialState)
 
   return store
 }
