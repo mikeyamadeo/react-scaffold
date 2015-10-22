@@ -25,7 +25,6 @@ export function configureStore (initialState) {
 
   if (__DEV__) { // eslint-disable-line
     const devTools = require('redux-devtools').devTools
-    console.log(devTools)
     store = compose(
       coreMiddleware,
       devTools()

@@ -1,4 +1,4 @@
-import { configureApiMiddleware } from 'redux.middleware/api'
+import { configureApiMiddleware } from 'redux-axios-api-middleware'
 import { CALL_API } from 'App/state/actions'
 
 const env = process.env.NODE_ENV || 'development'
