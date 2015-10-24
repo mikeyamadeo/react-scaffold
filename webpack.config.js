@@ -33,8 +33,7 @@ module.exports = getConfig({
    */
   vendors: [
     'react',
-    'react-router',
-    'axios'
+    'react-router'
   ],
 
   /**
