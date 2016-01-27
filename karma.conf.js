@@ -18,13 +18,20 @@ module.exports = function (config) {
       'specs.webpack.js': [ 'webpack', 'sourcemap' ] // preprocess with webpack and our sourcemap loader
     },
 
-    reporters: [ 'dots' ], // report results in this format
+    reporters: [ 'mocha' ], // report results in this format
 
     webpack: webpackConfig,
 
     webpackServer: {
       noInfo: true // please don't spam the console when running in karma!
-    }
+    },
+
+    plugins: [
+      'karma-webpack',
+      'karma-chrome-launcher',
+      'karma-mocha',
+      'karma-mocha-reporter'
+    ]
 
   })
 }
