@@ -15,7 +15,7 @@ const Root = props =>
 ReactDOM.render(<Root />, dest)
 
 if (__DEV__) { // eslint-disable-line
-  const DevTools = require('./DevTools')
+  const DevTools = require('./DevTools').default
 
   ReactDOM.render(
     <Provider store={store} key='provider'>
