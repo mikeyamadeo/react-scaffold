@@ -19,13 +19,12 @@
     "react-dom": "0.14.0",
     "react-redux": "4.0.0",
     "react-router": "1.0.0-rc1",
-    "redux": "3.0.2",
+    "redux": "3.1.0",
     "redux-axios-api-middleware": "0.2.0",
     "redux-router": "1.0.0-beta3",
     "redux-thunk": "1.0.0"
   },
   "devDependencies": {
-    "babel-plugin-transform-object-rest-spread": "6.3.13",
     "expect": "1.6.0",
     "karma": "0.12.37",
     "karma-chrome-launcher": "0.1.7",
@@ -35,7 +34,7 @@
     "karma-sourcemap-loader": "0.3.4",
     "karma-webpack": "1.5.0",
     "mocha": "2.4.2",
-    "prepacked": "1.3.2",
+    "prepacked": "1.4.0",
     "redux-devtools": "2.1.5"
   },
   "standard": {
