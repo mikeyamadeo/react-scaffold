@@ -21,22 +21,31 @@ const coreMiddleware = compose(
   )
 )
 
+/**
+ * 1. this code block only runs in development mode. It is completely removed when bundled
+ * for staging or production.
+ * 2. adds dev tools if the chrome extension is installed:
+ * https://github.com/zalmoxisus/redux-devtools-extension
+ */
 export function configureStore (initialState) {
 
-  if (__DEV__) { // eslint-disable-line
-    const devTools = require('redux-devtools').devTools
-    store = compose(
-      coreMiddleware,
-      devTools()
-    )(createStore)(reducer, initialState)
+  if (__DEV__) { /* [1] */ // eslint-disable-line
+    const { devToolsExtension } = window
+    store = createStore(
+      reducer,
+      initialState,
+      compose(
+        coreMiddleware,
+        devToolsExtension ? devToolsExtension() : f => f /* [2] */
+      )
+    )
     return store
   }
 
-  store = coreMiddleware(createStore)(reducer, initialState)
+  store = createStore(reducer, initialState, coreMiddleware)
 
   return store
 }
 
-export function getStore () {
-  return store
-}
+export const getStore = () => store
+

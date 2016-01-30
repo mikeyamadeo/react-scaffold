@@ -13,17 +13,3 @@ const Root = props =>
   </Provider>
 
 ReactDOM.render(<Root />, dest)
-
-if (__DEV__) { // eslint-disable-line
-  const DevTools = require('./DevTools').default
-
-  ReactDOM.render(
-    <Provider store={store} key='provider'>
-      <div>
-        <ReduxRouter />
-        <DevTools store={store}/>
-      </div>
-    </Provider>,
-    dest
-  )
-}
