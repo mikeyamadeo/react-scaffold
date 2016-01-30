@@ -3,26 +3,21 @@ import React, { PropTypes } from 'react'
 import CSSModules from 'react-css-modules'
 import { connect } from 'react-redux'
 import { capitalize } from 'utils.rendering'
-import Flex from 'obj.Flexbox'
-
-const CenteredColumn = ({children, ...props}) =>
-  <Flex direction='column' align='center' { ...props }>
-    { children }
-  </Flex>
+import { Y } from 'obj.Layout'
 
 const Stack = ({specs}) =>
-  <CenteredColumn styleName='container'>
+  <Y styleName='container'>
     <h1 styleName='h1'>
       made with &#9829; and
     </h1>
-    <CenteredColumn tag='ul' styleName='list'>
+    <Y tag='ul' styleName='list'>
       { specs.map((item, i) =>
         <li key={i} styleName='list-item'>
           { capitalize(item) }
         </li>
       )}
-    </CenteredColumn>
-  </CenteredColumn>
+    </Y>
+  </Y>
 
 Stack.propTypes = {
   specs: PropTypes.array
