@@ -12,26 +12,18 @@ var config = getConfig({
   out: buildPath,
   styleSrc: stylePath,
   resolves: [
-    'shared',
-    'public/assets'
+    'shared'
   ],
   featureFlags: {
     '__DEV__': isDev,
     '__PROD__': !isDev
   },
+  devServer: {
+    contentBase: buildPath
+  },
   html: isDev
     ? html.dev
     : html.prod
-})
-
-config.module.loaders.some(function (item) {
-  if (item.loader === 'babel-loader') {
-    return item.query.presets.push({
-      plugins: [
-        'transform-object-rest-spread'
-      ]
-    })
-  }
 })
 
 module.exports = config
