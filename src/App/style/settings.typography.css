@@ -10,12 +10,12 @@
 --bold:                  700;
 --extra-bold:            900;
 
---noto-font-family:   'Noto Sans', sans-serif;
+--mono-font-family:   'monospace';
 
---base-font-family:      var(--noto-font-family);
+--base-font-family:      var(--mono-font-family);
 --base-font-weight:      var(--light);
 
---header-font-family:    var(--noto-font-family);
+--header-font-family:    var(--mono-font-family);
 --header-font-weight:    var(--extra-bold);
 
 }
