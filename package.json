@@ -7,7 +7,7 @@
     "start": "prepacked-dev-server",
     "stage": "NODE_ENV=staging prepacked-build-script",
     "deploy": "NODE_ENV=production prepacked-build-script",
-    "test": "ava"
+    "test": "NODE_ENV=test ava"
   },
   "author": "Mikey Murphy <mikeyamadeo@gmail.com> (https://twitter.com/TranscendMikey)",
   "license": "ISC",
