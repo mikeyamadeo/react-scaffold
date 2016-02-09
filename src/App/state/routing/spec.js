@@ -1,58 +1,35 @@
-import expect from 'expect'
-
+import test from 'ava'
 import { transitionTo, replaceWith, updateQuery, replaceQuery } from './actions'
 
-const { describe, it } = window
+test('transitionTo action tests', t => {
+  const action = transitionTo('/test')
+  t.is(action.payload.method, 'pushState')
+  t.same(action.payload.args, [null, '/test', {}])
+})
 
-describe('-- Routing Action Tests', () => {
+test('replaceWith action tests', t => {
+  const action = replaceWith('/test')
+  t.is(action.payload.method, 'replaceState')
+  t.same(action.payload.args, [null, '/test', {}])
+})
 
-  it('-- transitionTo Action Tests', done => {
-
-    const action = transitionTo('/test')
-
-    expect(action.payload.method).toEqual('pushState')
-    expect(action.payload.args).toEqual([null, '/test', {}])
-
-    done()
-  })
-
-  it('-- replaceWith Action Tests', done => {
-
-    const action = replaceWith('/test')
-
-    expect(action.payload.method).toEqual('replaceState')
-    expect(action.payload.args).toEqual([null, '/test', {}])
-
-    done()
-  })
-
-  const dispatch = _ => _
-  const getState = _ => ({
-    router: {
-      location: {
-        pathname: '/test'
-      }
+const dispatch = _ => _
+const getState = _ => ({
+  router: {
+    location: {
+      pathname: '/test'
     }
-  })
+  }
+})
 
-  it('-- updateQuery Action Tests', done => {
+test('updateQuery action tests', t => {
+  const action = updateQuery({test: 1})(dispatch, getState)
+  t.is(action.payload.method, 'pushState')
+  t.same(action.payload.args, [null, '/test', {test: 1}])
+})
 
-    const action = updateQuery({test: 1})(dispatch, getState)
-
-    expect(action.payload.method).toEqual('pushState')
-    expect(action.payload.args).toEqual([null, '/test', {test: 1}])
-
-    done()
-  })
-
-  it('-- replaceQuery Action Tests', done => {
-
-    const action = replaceQuery({test: 1})(dispatch, getState)
-
-    expect(action.payload.method).toEqual('replaceState')
-    expect(action.payload.args).toEqual([null, '/test', {test: 1}])
-
-    done()
-  })
-
+test('replaceQuery action tests', t => {
+  const action = replaceQuery({test: 1})(dispatch, getState)
+  t.is(action.payload.method, 'replaceState')
+  t.same(action.payload.args, [null, '/test', {test: 1}])
 })
