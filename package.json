@@ -37,13 +37,12 @@
     "karma-sourcemap-loader": "0.3.4",
     "karma-webpack": "1.5.0",
     "mocha": "2.4.2",
-    "prepacked": "1.4.0",
-    "redux-devtools": "2.1.5"
+    "prepacked": "1.4.0"
   },
   "ava": {
     "files": [
-      "**/*.test.js",
-      "**/test.js"
+      "**/*.spec.js",
+      "**/spec.js"
     ],
     "require": [
       "babel-core/register"
