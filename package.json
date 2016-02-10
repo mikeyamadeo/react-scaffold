@@ -7,7 +7,7 @@
     "start": "prepacked-dev-server",
     "stage": "NODE_ENV=staging prepacked-build-script",
     "deploy": "NODE_ENV=production prepacked-build-script",
-    "test": "NODE_ENV=test ava"
+    "test": "NODE_ENV=test ava --require babel-register"
   },
   "author": "Mikey Murphy <mikeyamadeo@gmail.com> (https://twitter.com/TranscendMikey)",
   "license": "ISC",
@@ -46,11 +46,6 @@
     ],
     "require": [
       "babel-core/register"
-    ]
-  },
-  "babel-core": {
-    "presets": [
-      "es2015"
     ]
   }
 }
