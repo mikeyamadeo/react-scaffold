@@ -1,4 +1,5 @@
 import test from 'ava'
+import 'babel-core/register'
 import { transitionTo, replaceWith, updateQuery, replaceQuery } from './actions'
 
 test('transitionTo action tests', t => {
