@@ -10,9 +10,10 @@ import { createReducer } from 'utils.redux'
 export const appSpecs = createReducer([
   'react 😘',
   'redux 🎉',
-  'react + redux router',
+  'react router redux',
   'webpack',
   'babel / es6',
+  'Aphrodite',
   'CSS Modules',
   'CSSnext'
 ], {})
