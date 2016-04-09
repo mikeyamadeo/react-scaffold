@@ -1,24 +1,21 @@
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux'
 import thunkMiddleware from 'redux-thunk'
-import { routerStateReducer, reduxReactRouter } from 'redux-router'
-import createHistory from 'history/lib/createHashHistory'
+import { browseHistory } from 'react-router'
+import { routerReducer, routerMiddleware } from 'react-router-redux'
 import apiMiddleware from 'config.api'
 import * as reducers from 'redux.reducers'
-import routes from 'config.routes'
 
 let store = {}
 
 const reducer = combineReducers({
   ...reducers,
-  router: routerStateReducer
+  routing: routerReducer
 })
 
-const coreMiddleware = compose(
-  reduxReactRouter({ routes, createHistory }),
-  applyMiddleware(
-    thunkMiddleware,
-    apiMiddleware
-  )
+const coreMiddleware = applyMiddleware(
+  routerMiddleware(browseHistory),
+  thunkMiddleware,
+  apiMiddleware,
 )
 
 /**
