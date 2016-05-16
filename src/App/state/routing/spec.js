@@ -1,7 +1,7 @@
 import test from 'ava'
 import { transitionTo, replaceWith, updateQuery, replaceQuery } from './actions'
 
-const dispatch = (test) => test
+const dispatch = (param) => param
 
 const getState = () => ({
   router: {
