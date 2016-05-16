@@ -14,7 +14,7 @@ export const replaceWith = (pathname, query = {}) => replace(null, pathname, que
 /**
  * Depends on redux-thunk to get the current pathname from the state
  */
-const makeQueryAction = action => query => (dispatch, getState) => {
+const makeQueryAction = (action) => (query) => (dispatch, getState) => {
   const { location } = getState().router
 
   return dispatch(action(location.pathname, {
