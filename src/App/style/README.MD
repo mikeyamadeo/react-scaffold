@@ -1,2 +1,19 @@
-![itcss](https://raw.githubusercontent.com/mikeyamadeo/react-scaffold/master/assets/images/itcss-triangle-foundation.png "itcss")
+## *ITCSS* - Inverted Triangle CSS
+```
+\                            / SETTINGS - Variables
+ --------------------------------------------------------
+  \                        / TOOLS - Functions
+   ------------------------------------------------------
+    \                    / GENERIC - Reset / 3rd Party
+     ----------------------------------------------------
+      \                / BASE - Bare Elements
+       --------------------------------------------------
+        \            / OBJECTS - Layout
+         ------------------------------------------------
+          \        / COMPONENTS - UI
+           ----------------------------------------------
+            \    / TRUMPS - Overrides (!important)
+             --------------------------------------------
+              \/
+```
 
