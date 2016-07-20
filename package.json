@@ -12,31 +12,18 @@
   "author": "Mikey Murphy <mikeyamadeo@gmail.com> (https://twitter.com/TranscendMikey)",
   "license": "ISC",
   "dependencies": {
-    "aphrodite": "0.2.0",
-    "classnames": "2.1.3",
-    "history": "1.11.0",
-    "react": "15.0.0",
-    "react-dom": "15.0.0",
-    "react-redux": "4.0.0",
-    "react-router": "2.0.1",
-    "react-router-redux": "4.0.2",
-    "redux": "3.1.3",
+    "aphrodite": "0.4.1",
+    "react": "15.2.1",
+    "react-dom": "15.2.1",
+    "react-redux": "4.4.5",
+    "redux": "3.5.2",
     "redux-axios-api-middleware": "0.2.0",
-    "redux-thunk": "1.0.0"
+    "redux-thunk": "2.1.0"
   },
   "devDependencies": {
     "ava": "0.11.0",
     "babel-core": "6.5.1",
     "babel-preset-es2015": "6.3.13",
-    "expect": "1.6.0",
-    "karma": "0.12.37",
-    "karma-chrome-launcher": "0.1.7",
-    "karma-cli": "0.0.4",
-    "karma-mocha": "0.1.10",
-    "karma-mocha-reporter": "1.1.5",
-    "karma-sourcemap-loader": "0.3.4",
-    "karma-webpack": "1.5.0",
-    "mocha": "2.4.2",
     "prepacked": "1.4.0"
   },
   "ava": {
