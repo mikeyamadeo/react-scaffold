@@ -1,3 +1,7 @@
+/*------------------------------------*\
+    #COLOR_SETTINGS
+\*------------------------------------*/
+
 :root {
 --clr-blue:          #4FC1E9;
 --clr-dark-blue:     #3BAFDA;
@@ -15,7 +19,7 @@
 --clr-dark-red:      #DA4453;
 
 --clr-yellow:        #FFCE54;
---clr-dark-yellow:   #F6BB42; 
+--clr-dark-yellow:   #F6BB42;
 
 --clr-grey:          #BBBBBB;
 --clr-dark-grey:     #9B9B9B;
@@ -28,4 +32,3 @@
 
 --clr-green:         #8fbd62;
 }
-

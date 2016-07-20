@@ -1,4 +1,3 @@
-@import "settings.global";
 @import "settings.colors";
 @import "settings.typography";
 
@@ -12,5 +11,9 @@ html,
 body,
 #app {
   height: 100%;
-  font-family: monospace;
+}
+
+ul,
+ol {
+  list-style: none;
 }

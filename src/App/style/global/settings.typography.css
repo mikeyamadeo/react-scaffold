@@ -3,7 +3,6 @@
 \*------------------------------------*/
 
 :root {
-
 --extra-light:           100;
 --light:                 300;
 --normal:                500;
@@ -17,5 +16,4 @@
 
 --header-font-family:    var(--mono-font-family);
 --header-font-weight:    var(--extra-bold);
-
 }

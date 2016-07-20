@@ -1,4 +1,4 @@
-import './style'
+import './style/global'
 import React, { PropTypes } from 'react'
 
 const App = ({children}) => (
@@ -12,4 +12,3 @@ App.propTypes = {
 }
 
 export default App
-
