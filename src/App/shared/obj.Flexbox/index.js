@@ -1,26 +1,6 @@
 import React, { PropTypes } from 'react'
-import { StyleSheet, css } from 'aphrodite'
-
-const cssIf = (styleSheet, ...params) => {
-  let styles = []
-
-  params.forEach((p) => {
-
-    const fromStylesheet = !!p._name
-
-    if (fromStylesheet) {
-      styles.push(p)
-    } else {
-      for (let key in p) {
-        if (p.hasOwnProperty(key) && p[key]) {
-          styles.push(styleSheet[key])
-        }
-      }
-    }
-  })
-
-  return css.apply(null, styles)
-}
+import { StyleSheet } from 'aphrodite'
+import { cssIf } from 'utils.rendering'
 
 const Flexbox = ({tag = 'div', children, direction, wrap, justify, align, ...props}) => {
   const Tag = tag
