@@ -1,11 +1,10 @@
 A lightweight, opinionated setup to get up and going on react projects using
-* react 0.14.0
-* react-rotuer 1.0
-* redux-router
+* react
+* redux
+* react-router
 * webpack
 * babel
-* CSS Modules
-* redux
+* aphrodite
 
 
 ###Getting Started
@@ -15,6 +14,6 @@ A lightweight, opinionated setup to get up and going on react projects using
 ###Debugger
 install this [chrome extension](https://github.com/zalmoxisus/redux-devtools-extension)
 
-###[Organization / Structure / Architecture](https://medium.com/@TranscendMikey/49a281bd97eb)
+###Organization / Structure / Architecture
+Read about it [here](https://medium.com/maintainable-react-apps/react-apps-approaching-organization-structure-architecture-49a281bd97eb#.vgv99sw9m)
 
-###[Styling](https://medium.com/@TranscendMikey/632cfa9c70d6)
