@@ -1,20 +1,16 @@
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux'
-import thunkMiddleware from 'redux-thunk'
-import { browseHistory } from 'react-router'
-import { routerReducer, routerMiddleware } from 'react-router-redux'
+import thunk from 'redux-thunk'
 import apiMiddleware from 'config.api'
 import * as reducers from 'redux.reducers'
 
 let store = {}
 
 const reducer = combineReducers({
-  ...reducers,
-  routing: routerReducer
+  ...reducers
 })
 
 const coreMiddleware = applyMiddleware(
-  routerMiddleware(browseHistory),
-  thunkMiddleware,
+  thunk,
   apiMiddleware,
 )
 
@@ -25,15 +21,14 @@ const coreMiddleware = applyMiddleware(
  * https://github.com/zalmoxisus/redux-devtools-extension
  */
 export function configureStore (initialState) {
-
   if (__DEV__) { /* [1] */ // eslint-disable-line
-    const { devToolsExtension } = window
+    const { devToolsExtension } = window ? window : {}
     store = createStore(
       reducer,
       initialState,
       compose(
         coreMiddleware,
-        devToolsExtension ? devToolsExtension() : f => f /* [2] */
+        devToolsExtension ? devToolsExtension() : _ => _ /* [2] */
       )
     )
     return store
@@ -45,4 +40,3 @@ export function configureStore (initialState) {
 }
 
 export const getStore = () => store
-
