@@ -25,7 +25,7 @@ Architecture: *ITCSS* - Inverted Triangle CSS
               \/
 ```
 
-#### SETTINGS
+### SETTINGS
 * Globally-available settings.
 * Config switches.
 * Brand colors, etc.
@@ -41,6 +41,8 @@ Architecture: *ITCSS* - Inverted Triangle CSS
 @custom-media --viewport-narrow (width >= 31.25em);
 
 /* component.css */
+@import 'settings';
+
 .container {
   padding: var(--spacing-tiny)
 }
@@ -62,7 +64,7 @@ export const viewport = {
 }
 ```
 
-#### TOOLS
+### TOOLS
 * Globally-available tools
 * Helper functions.
 
@@ -88,7 +90,7 @@ export const pxToEm (px) =>
   `${px / baseFontSize}em`
 ```
 
-#### GENERIC
+### GENERIC
 * Ground zero styles
 * Low-specificity, far-reaching
 * Resets, Normalize.css, etc.
@@ -109,7 +111,7 @@ form, fieldset, legend {
 }
 ```
 
-#### BASE
+### BASE
 * Unclassed HTML Elements.
 * H1-H6, basic links, lists, etc.
 * More opinionated / "stylistic" than `Generic`.
@@ -153,19 +155,24 @@ button {
 }
 ```
 You could but...
-* The relationship is implicit
+* The relationship is implicit.
 * May be too far-reaching / powerful: Effects _every_ button forcing overrides if you would like to do anything else.
-* Using a react component allows you to be selective on what uses base and what doesn't
+* Using a react component allows you to be selective on what uses base and what doesn't.
 
-#### OBJECTS
+### OBJECTS
 * OOCSS.
 * Design patterns.
 * No cosmetics.
 * Agnostically named (e.g. list, block, media).
 
 
-##### Example 1: ["Famous"](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/) Media Object
+#### Example 1: [Famous](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/) "Media" Object
 *Using css-modules + react component*
+
+
+```
+PLACEHOLDER SHOW IMAGE OF MEDIA OBJECT
+```
 
 ```css
 
@@ -184,7 +191,7 @@ You could but...
 
 .img {
   float: left;
-  marginRight: var(--spacing-standard);
+  margin-right: var(--spacing-standard);
 }
 
 .img > img{
@@ -229,13 +236,16 @@ const Media = ({
 
 ```js
 import { X } from 'react-axis'
+import ___ from 'react-space'
 
 const Media = ({
   imgProps,
   children
 }) =>
   <X x>
-    <img {...imgProps} />
+    <___ mr>
+      <img {...imgProps} style={{...imageProps.style, display: 'block'}}/>
+    </___>
     <div>
       {children}
     </div>
@@ -260,11 +270,11 @@ Aphrodite
 1. Sometimes CSS selectors are convenient
 ```css
 .body > :last-child {
-  marginBottom: 0;
+  margin-bottom: 0;
 }
 
 .li:not(:first-child) {
-  marginTop: .5em;
+  margin-top: .5em;
 }
 
 .theme-red .txt {
