@@ -169,7 +169,9 @@ You could but...
 #### Example 1: [Famous](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/) "Media" Object
 *Using css-modules + react component*
 
-
+```
+NOTE: before code snippets may be good to show images of examples (block, media)
+```
 ```
 PLACEHOLDER SHOW IMAGE OF MEDIA OBJECT
 ```
@@ -250,6 +252,20 @@ const Media = ({
       {children}
     </div>
   </X>
+```
+
+### COMPONENTS
+* Designed pieces of UI
+* Still only using classes.
+* More explicitly named (e.g. .products-list {})
+* Aphrodite bread & butter
+
+### TRUMPS
+* Overrides, helpers, utilities
+
+```js
+import ___ from 'react-space'
+import Txt from 'react-txt'
 ```
 
 Aphrodite
