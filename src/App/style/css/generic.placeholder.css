@@ -1,0 +1,24 @@
+/*------------------------------------*\
+    #BOX-SIZING
+\*------------------------------------*/
+
+@import "settings.colors";
+
+:root {
+  --placeholderClr:    var(--clr-dark-base);
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+  color: var(--placeholderClr);
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: var(--placeholderClr);
+  opacity: 1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: var(--placeholderClr);
+  opacity: 1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color: var(--placeholderClr);
+}

@@ -1,4 +1,4 @@
-import './style/global'
+import './style/css'
 import React, { PropTypes } from 'react'
 
 const App = ({children}) => (

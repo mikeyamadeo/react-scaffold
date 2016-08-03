@@ -1,19 +1,13 @@
-@import "settings.colors";
-@import "settings.typography";
-
 @import "generic.reset";
 @import "generic.normalize";
 @import "generic.box-sizing";
+@import "generic.placeholder";
 
+@import "base.elements";
 @import "base.typography";
 
 html,
 body,
 #app {
   height: 100%;
-}
-
-ul,
-ol {
-  list-style: none;
 }

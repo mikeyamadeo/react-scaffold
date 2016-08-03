@@ -1,8 +1,11 @@
-## Styling Tech Stack
-* [Aphrodite](https://github.com/Khan/aphrodite) - 99% of view/component styling
-* [CSSNext](http://cssnext.io/) + [CSSModules](http://glenmaddern.com/articles/css-modules) - Global
-* ES6, React - CSS in js ftw
-* Tooling: Webpack, Babel, postcss
+Styling Guidelines
+==================
+
+## Tech / Toolchest
+* [Aphrodite](https://github.com/Khan/aphrodite): 99% of view / component styling
+* [CSSNext](http://cssnext.io/) + [CSSModules](http://glenmaddern.com/articles/css-modules): Global / Reset / Escape-hatch styling
+* React: Encapsulate reusable styles
+* Tooling — Webpack, Babel, postcss
 
 Architecture: *ITCSS* - Inverted Triangle CSS
 ===============================
@@ -141,17 +144,20 @@ const styles = Stylesheet.create({
 })
 
 // React components are perfect for encapsulating styles
-const BtnBase = ({children, ...rest}) =>
-  <button className={css(styles.base)}>
-    {children}
+const BtnBase = ({children, className, ...rest}) =>
+  <button {...{
+    ...rest,
+    className: `${css(styles.base)} ${className}`
+  }}>
+    { children }
   </button>
 ```
 
 ^ Why not just use CSS?
 ```css
 button {
-  border: 'none';
-  outline: 'none';
+  border: none;
+  outline: none;
 }
 ```
 You could but...
@@ -260,6 +266,30 @@ const Media = ({
 * More explicitly named (e.g. .products-list {})
 * Aphrodite bread & butter
 
+```js
+import { colors } from 'App/style/settings'
+import BtnBase from 'App/shared/BtnBase'
+
+const styles = Stylesheet.create({
+  shared: {
+    fontSize: '1.2em',
+    textTransform: 'uppercase'
+  },
+  main: {
+    border: `solid 1px ${colors.primary}`
+  }
+})
+
+const Btn = ({
+  theme = 'main',
+  children,
+  ...rest
+}) =>
+  <BtnBase {...rest} className={css(styles.shared, styles[theme])}>
+    {children}
+  </BtnBase>
+```
+
 ### TRUMPS
 * Overrides, helpers, utilities
 
@@ -318,3 +348,38 @@ Requires a shift in thinking:
 }
 
 ```
+
+Aphrodite FAQ:
+
+#### Server-side rendering?
+[Official example](https://github.com/Khan/aphrodite#server-side-rendering)
+
+#### Global Styling / Styling by tagname?
+See this [issue](https://github.com/Khan/aphrodite/issues/30)
+
+#### Fonts?
+[Font Faces](https://github.com/Khan/aphrodite#font-faces)
+
+#### Animations?
+```js
+const keyframes = {
+  'from': {
+    marginLeft: 0,
+  },
+
+  'to': {
+    marginLeft: 100,
+  }
+}
+
+const styles = StyleSheet.create({
+ animate: {
+  animationName: keyframes,
+  animationDuration: '2s',
+  animationIterationCount: 'infinite',
+ }
+})
+```
+
+#### Gotchas?
+[Assigning a string to a content property for a pseudo-element](https://github.com/Khan/aphrodite#assigning-a-string-to-a-content-property-for-a-pseudo-element)
