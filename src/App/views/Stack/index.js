@@ -1,7 +1,7 @@
 import { StyleSheet, css } from 'aphrodite'
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { colors } from 'settings.style'
+import { colors } from 'App/style/settings'
 import { capitalize } from 'utils.rendering'
 import { Y } from 'obj.Layout'
 

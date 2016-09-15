@@ -27,4 +27,6 @@
   --clr-wild-sand:     '#F5F5F5';
   --clr-alto:          '#D8D8D8';
 
+  --clr-base: var(--clr-wild-sand);
+  --clr-dark-base: var(--clr-alto);
 }
