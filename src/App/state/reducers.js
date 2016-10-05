@@ -12,6 +12,5 @@ export const appSpecs = createReducer([
   'redux 🎉',
   'webpack',
   'babel / es6',
-  'Aphrodite',
-  'CSSnext'
+  'Aphrodite'
 ], {})

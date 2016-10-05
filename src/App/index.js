@@ -1,9 +1,11 @@
 import './style/css'
 import React, { PropTypes } from 'react'
 
-const App = ({children}) => (
+import { MatchWithSubRoutes } from 'utils.routing'
+
+const App = ({routes}) => (
   <div>
-    { children }
+    {routes.map((route, i) => <MatchWithSubRoutes {...{ ...route, key: i }} />)}
   </div>
 )
 

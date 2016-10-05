@@ -1,18 +1,19 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import { configureStore } from 'redux.store'
-import { Provider } from 'react-redux'
-import { Router, browserHistory } from 'react-router'
+import { render } from 'react-dom'
+
+import { HashRouter } from 'react-router'
 import routes from 'config.routes'
 
-const store = configureStore()
-const dest = document.getElementById('app')
+import { Provider } from 'react-redux'
+import { configureStore } from 'redux.store'
 
-const Root = props =>
-  <Provider store={store} key='provider'>
-    <Router history={browserHistory}>
+const store = configureStore()
+
+const App = () =>
+  <Provider {...{ store, key: 'provider' }}>
+    <HashRouter>
       {routes}
-    </Router>
+    </HashRouter>
   </Provider>
 
-ReactDOM.render(<Root />, dest)
+render(<App/>, document.querySelector('#app'))
