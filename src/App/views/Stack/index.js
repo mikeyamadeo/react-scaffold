@@ -1,7 +1,9 @@
-import { StyleSheet, css } from 'aphrodite'
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { colors } from 'App/style/settings'
+
+import { StyleSheet, css } from 'aphrodite'
+import { clr } from 'App/style/settings'
+
 import { capitalize } from 'utils.rendering'
 import { Y } from 'obj.Layout'
 
@@ -11,7 +13,7 @@ const Stack = ({specs}) =>
       made with <span className={css(style.heart)}>&#9829;</span> and
     </h1>
     <Y tag='ul' className={css(style.list)}>
-      { specs.map((item, i) =>
+      {specs.map((item, i) =>
         <li key={i} className={css(style.listItem)}>
           { capitalize(item) }
         </li>
@@ -23,9 +25,11 @@ Stack.propTypes = {
   specs: PropTypes.array
 }
 
-export default connect(state => ({
-  specs: state.appSpecs
-}))(Stack)
+const mapStateToProps = ({ appSpecs }) => ({
+  specs: appSpecs
+})
+
+export default connect(mapStateToProps)(Stack)
 
 const style = StyleSheet.create({
   container: {
@@ -53,6 +57,6 @@ const style = StyleSheet.create({
     }
   },
   heart: {
-    color: colors.red
+    color: clr.negative
   }
 })
