@@ -6,8 +6,7 @@
   "scripts": {
     "start": "prepacked-dev-server",
     "stage": "NODE_ENV=staging prepacked-build-script",
-    "deploy": "NODE_ENV=production prepacked-build-script",
-    "test": "NODE_ENV=test ava --require babel-register"
+    "deploy": "NODE_ENV=production prepacked-build-script"
   },
   "author": "Mikey Murphy <mikeyamadeo@gmail.com> (https://twitter.com/TranscendMikey)",
   "license": "ISC",
@@ -22,19 +21,7 @@
     "redux-thunk": "2.1.0"
   },
   "devDependencies": {
-    "ava": "0.16.0",
-    "babel-core": "6.17.0",
-    "babel-preset-es2015": "6.16.0",
     "prepacked": "1.5.0"
-  },
-  "ava": {
-    "files": [
-      "**/*.spec.js",
-      "**/spec.js"
-    ],
-    "require": [
-      "babel-core/register"
-    ]
   },
   "standard": {
     "parser": "babel-eslint",
