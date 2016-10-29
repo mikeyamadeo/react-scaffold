@@ -1,10 +1,10 @@
 import { configureApiMiddleware } from 'redux-axios-api-middleware'
 import { CALL_API } from 'App/state/actions'
 
-let apiRoot = 'https://api.ancestorcloud.com/'
+let apiRoot = 'YOUR_DEV_API'
 
 if (!__PROD__) { // eslint-disable-line
-  apiRoot = 'https://api-staging.ancestorcloud.com/'
+  apiRoot = 'YOUR_PROD_API'
 }
 
 export const API_ROOT = apiRoot
