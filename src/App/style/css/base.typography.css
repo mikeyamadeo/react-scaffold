@@ -1,7 +1,7 @@
 /*------------------------------------*\
     #TYPOGRAPHY_BASE
 \*------------------------------------*/
-@import 'settings.typography';
+@import './settings.typography';
 
 html {
    -webkit-font-smoothing: antialiased;
