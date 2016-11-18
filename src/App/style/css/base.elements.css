@@ -1,4 +1,4 @@
-@import 'settings';
+@import './settings';
 
 html {
   font-size: var(--base-font-size);
