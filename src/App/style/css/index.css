@@ -1,10 +1,10 @@
-@import "generic.reset";
-@import "generic.normalize";
-@import "generic.box-sizing";
-@import "generic.placeholder";
+@import "./generic.reset";
+@import "./generic.normalize";
+@import "./generic.box-sizing";
+@import "./generic.placeholder";
 
-@import "base.elements";
-@import "base.typography";
+@import "./base.elements";
+@import "./base.typography";
 
 html,
 body,

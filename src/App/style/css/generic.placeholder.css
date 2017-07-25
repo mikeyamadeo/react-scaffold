@@ -1,4 +1,4 @@
-@import "settings.colors";
+@import "./settings.colors";
 
 :root {
   --placeholderClr:    var(--clr-dark-base);
