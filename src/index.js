@@ -9,11 +9,16 @@ import { configureStore } from 'redux.store'
 
 const store = configureStore()
 
-const App = () =>
+const App = () => (
   <Provider {...{ store, key: 'provider' }}>
     <HashRouter>
       {routes}
     </HashRouter>
   </Provider>
+)
 
-render(<App/>, document.querySelector('#app'))
+render(<App />, document.querySelector('#app'))
+
+if (module.hot) {
+  module.hot.accept()
+}

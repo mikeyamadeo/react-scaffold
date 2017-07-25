@@ -7,10 +7,13 @@ import { createReducer } from 'utils.redux'
  *
  * When removing this reducer, don't forget to unregister it from redux.reducers
  */
-export const appSpecs = createReducer([
-  'react 😘',
-  'redux 🎉',
-  'webpack',
-  'babel / es6',
-  'Aphrodite'
-], {})
+export const appSpecs = createReducer(
+  [
+    'react \uD83D\uDE18',
+    'redux \uD83C\uDF89',
+    'webpack',
+    'babel / es6',
+    'glamor'
+  ],
+  {}
+)
