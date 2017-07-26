@@ -1,16 +1,11 @@
 import './style/css'
-import React, { PropTypes } from 'react'
+import React from 'react'
+import Stack from 'App/views/Stack'
 
-import { MatchWithSubRoutes } from 'utils.routing'
-
-const App = ({routes}) => (
+const App = ({ routes }) => (
   <div>
-    {routes.map((route, i) => <MatchWithSubRoutes {...{ ...route, key: i }} />)}
+    <Stack />
   </div>
 )
-
-App.propTypes = {
-  children: PropTypes.node
-}
 
 export default App

@@ -1,18 +1,13 @@
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
-import apiMiddleware from 'config.api'
-import * as reducers from 'redux.reducers'
+import apiMiddleware from 'config/api'
+import * as reducers from './reducers'
 
 let store = {}
 
-const reducer = combineReducers({
-  ...reducers
-})
+const reducer = combineReducers({ ...reducers })
 
-const coreMiddleware = applyMiddleware(
-  thunk,
-  apiMiddleware,
-)
+const coreMiddleware = applyMiddleware(thunk, apiMiddleware)
 
 /**
  * 1. this code block only runs in development mode. It is completely removed when bundled
@@ -21,8 +16,10 @@ const coreMiddleware = applyMiddleware(
  * https://github.com/zalmoxisus/redux-devtools-extension
  */
 export function configureStore (initialState) {
-  if (__DEV__) { /* [1] */ // eslint-disable-line
-    const { devToolsExtension } = window ? window : {}
+  if (__DEV__) {
+    /* [1] */
+    // eslint-disable-line
+    const { devToolsExtension } = window || {}
     store = createStore(
       reducer,
       initialState,

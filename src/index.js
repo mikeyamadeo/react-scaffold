@@ -1,23 +1,22 @@
 import React from 'react'
-import { render } from 'react-dom'
-
-import { HashRouter } from 'react-router'
-import routes from 'config.routes'
-
+import Dom from 'react-dom'
+import { HashRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { configureStore } from 'redux.store'
+import { configureStore } from './state'
+import App from './App'
 
 const store = configureStore()
+const root = document.getElementById('root')
 
-const App = () => (
+const Root = () => (
   <Provider {...{ store, key: 'provider' }}>
     <HashRouter>
-      {routes}
+      <App />
     </HashRouter>
   </Provider>
 )
 
-render(<App />, document.querySelector('#app'))
+Dom.render(<Root />, root)
 
 if (module.hot) {
   module.hot.accept()

@@ -1,4 +1,4 @@
-import { createReducer } from 'utils.redux'
+import { createReducer } from 'state/utils'
 
 /**
  * This reducer is here in order to demonstrate inputting and retrieving state w/ redux.
