@@ -1389,6 +1389,14 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
+create-react-class@^15.6.0:
+  version "15.6.0"
+  resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.6.0.tgz#ab448497c26566e1e29413e883207d57cfe7bed4"
+  dependencies:
+    fbjs "^0.8.9"
+    loose-envify "^1.3.1"
+    object-assign "^4.1.1"
+
 cross-spawn@^5.0.1:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-5.1.0.tgz#e8bd0efee58fcff6f8f94510a0a554bbfa235449"
@@ -2180,7 +2188,7 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
-glamor:
+glamor, glamor@^2.20.25:
   version "2.20.37"
   resolved "https://registry.yarnpkg.com/glamor/-/glamor-2.20.37.tgz#3cd576deb760eaaf475dcc1f9b77bf6a7d2f8b26"
   dependencies:
@@ -3808,6 +3816,24 @@ react-deep-force-update@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-2.0.1.tgz#4f7f6c12c3e7de42f345992a3c518236fa1ecad3"
 
+react-ditto@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/react-ditto/-/react-ditto-1.5.0.tgz#a2afa7d6384bff18770fa1ee5bad68ee2e827287"
+  dependencies:
+    glamor "^2.20.25"
+    glamorous "^3.23.5"
+    prop-types "^15.5.10"
+    react "^15.6.1"
+
+react-dom@^15.6.1:
+  version "15.6.1"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.6.1.tgz#2cb0ed4191038e53c209eb3a79a23e2a4cf99470"
+  dependencies:
+    fbjs "^0.8.9"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.0"
+    prop-types "^15.5.10"
+
 react-dom@15.3.2:
   version "15.3.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.3.2.tgz#c46b0aa5380d7b838e7a59c4a7beff2ed315531f"
@@ -3882,6 +3908,16 @@ react-transform-hmr@^1.0.1:
   dependencies:
     global "^4.3.0"
     react-proxy "^1.1.7"
+
+react@^15.6.1:
+  version "15.6.1"
+  resolved "https://registry.yarnpkg.com/react/-/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"
+  dependencies:
+    create-react-class "^15.6.0"
+    fbjs "^0.8.9"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.0"
+    prop-types "^15.5.10"
 
 react@15.3.2:
   version "15.3.2"
@@ -4580,6 +4616,15 @@ tough-cookie@~2.3.0:
   resolved "https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.3.2.tgz#f081f76e4c85720e6c37a5faced737150d84072a"
   dependencies:
     punycode "^1.4.1"
+
+trace-ui:
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/trace-ui/-/trace-ui-2.5.2.tgz#cd4a5fed3844e20980b4ed1c28b714ffcb98e0b4"
+  dependencies:
+    glamor "^2.20.25"
+    react "^15.6.1"
+    react-ditto "^1.5.0"
+    react-dom "^15.6.1"
 
 trim-newlines@^1.0.0:
   version "1.0.0"
