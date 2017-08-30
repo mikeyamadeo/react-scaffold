@@ -1,10 +1,10 @@
-import './style/css'
+import './style'
 import React from 'react'
-import FindResearcher from 'App/views/FindResearcher'
+import Stack from 'App/views/Stack'
 
 const App = ({ routes }) => (
   <div>
-    <FindResearcher />
+    <Stack />
   </div>
 )
 

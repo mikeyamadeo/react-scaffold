@@ -1,0 +1,9 @@
+@import "./reset";
+@import "./normalize";
+@import "./box-sizing";
+
+html,
+body,
+#app {
+  height: 100%;
+}
