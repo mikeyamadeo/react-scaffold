@@ -7,17 +7,17 @@ A lightweight, opinionated setup to get up and going on react projects using
 * aphrodite
 
 
-###Getting Started
+### Getting Started
 * $npm install
 * $npm start
 
-###Debugger
+### Debugger
 install this [chrome extension](https://github.com/zalmoxisus/redux-devtools-extension)
 
-###Organization / Structure / Architecture
+### Organization / Structure / Architecture
 Read about it [here](https://medium.com/maintainable-react-apps/react-apps-approaching-organization-structure-architecture-49a281bd97eb#.vgv99sw9m)
 
-###State
+### State
 Persisting state with loadState && saveState
 https://egghead.io/lessons/javascript-redux-persisting-the-state-to-the-local-storage
 
