@@ -1,13 +1,11 @@
-import { createStore, compose, applyMiddleware, combineReducers } from 'redux'
+import { createStore, compose, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-import apiMiddleware from 'config/api'
-import * as reducers from './reducers'
 
 let store = {}
 
-const reducer = combineReducers({ ...reducers })
+const reducer = require('App/state').default
 
-const coreMiddleware = applyMiddleware(thunk, apiMiddleware)
+const coreMiddleware = applyMiddleware(thunk)
 
 /**
  * 1. this code block only runs in development mode. It is completely removed when bundled
