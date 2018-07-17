@@ -4,7 +4,7 @@ A lightweight, opinionated setup to get up and going on react projects using
 * react-router
 * webpack
 * babel
-* aphrodite
+* glamorous
 
 
 ### Getting Started
