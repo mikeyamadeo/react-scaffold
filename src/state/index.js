@@ -14,7 +14,7 @@ const coreMiddleware = applyMiddleware(thunk)
  * https://github.com/zalmoxisus/redux-devtools-extension
  */
 export function configureStore (initialState) {
-  if (__DEV__) {
+  if (process.env.__DEV__) {
     /* [1] */
     // eslint-disable-line
     const { devToolsExtension } = window || {}

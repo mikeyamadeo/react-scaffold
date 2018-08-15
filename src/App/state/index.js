@@ -16,9 +16,9 @@ export const appSpecs = createReducer(
   [
     'react \uD83D\uDE18',
     'redux \uD83C\uDF89',
-    'webpack',
+    'parcel',
     'babel / es6',
-    'glamor'
+    'emotion'
   ],
   {}
 )

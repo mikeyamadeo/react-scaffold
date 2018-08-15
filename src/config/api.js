@@ -3,7 +3,7 @@ import { CALL_API } from 'App/state/actions'
 
 let apiRoot = 'YOUR_DEV_API'
 
-if (!__PROD__) {
+if (!process.env.__PROD__) {
   // eslint-disable-line
   apiRoot = 'YOUR_PROD_API'
 }

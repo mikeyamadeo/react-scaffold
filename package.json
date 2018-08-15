@@ -4,38 +4,50 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "start": "prepacked-dev-server",
-    "stage": "NODE_ENV=staging prepacked-build-script",
-    "deploy": "NODE_ENV=production prepacked-build-script",
+    "start": "NODE_ENV=development __DEV__=true parcel index.html",
+    "stage": "NODE_ENV=staging __STAGE__=true parcel build index.html",
+    "deploy": "NODE_ENV=production __PROD__=true parcel build index.html",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "test": "jest --watch"
+  },
+  "jest": {
+    "testRegex": "(test|spec).(js)$",
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
   },
   "author": "Mikey Murphy <mikeyamadeo@gmail.com> (https://twitter.com/TranscendMikey)",
   "license": "ISC",
   "dependencies": {
-    "create-react-class": "^15.6.2",
-    "glamor": "^2.20.37",
-    "glamorous": "^3.23.5",
+    "emotion": "^9.2.6",
     "prop-types": "^15.6.0",
-    "react": "15.3.2",
-    "react-dom": "15.3.2",
-    "react-redux": "4.4.5",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-emotion": "^9.2.6",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.1.2",
     "redux": "3.6.0",
     "redux-axios-api-middleware": "0.2.0",
     "redux-thunk": "2.1.0",
-    "styled-system": "^1.0.8"
+    "styled-system": "^3.0.2",
+    "system-components": "^3.0.0"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.2.6",
     "@storybook/addon-links": "^3.2.6",
     "@storybook/react": "^3.2.8",
-    "prepacked": "3.1.0"
+    "babel-plugin-emotion": "^9.2.6",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "jest": "^21.2.1"
   },
   "standard": {
     "parser": "babel-eslint",
     "rules": {
       "strict": 0
     }
-  }
+  },
+  "repository": "https://github.com/mikeyamadeo/react-scaffold.git"
 }

@@ -1,25 +1,26 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import pt from 'prop-types'
 import { connect } from 'react-redux'
-import { Div } from 'glamorous'
+import Box from 'App/shared/Layout'
 
-import { capitalize } from 'utils/rendering'
+import { capitalize } from 'utils'
 
 const Stack = ({ specs }) => (
-  <Div>
-    <h1>
-      made with <span>♥</span> and
-    </h1>
-    <Div tag='ul'>
+  <Box>
+    <Box is='h1' textAlign='center'>
+      made with <Box is='span' color='red'>♥</Box> and
+    </Box>
+    <Box.col is='ul' x>
       {specs.map((item, i) => (
-        <li key={i}>
+        <Box is='li' p={1} key={i}>
           {capitalize(item)}
-        </li>
+        </Box>
         ))}
-    </Div>
-  </Div>
+    </Box.col>
+  </Box>
 )
 
-Stack.propTypes = { specs: PropTypes.array }
+Stack.propTypes = { specs: pt.array }
 
 const mapStateToProps = ({ appSpecs }) => ({ specs: appSpecs })
 
